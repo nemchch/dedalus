@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="first-aligment"></div>
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-house-door-fill"
              viewBox="0 0 16 16" color="#8F9EB4">
           <path
@@ -42,9 +42,39 @@
     <div class="w-75 p-3">
       <div class="input-group mb-3">
         <input type="text" class="form-control form-control-lg" placeholder="Enter a text for analysis . . ."
-               aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">OK</button>
+               aria-describedby="button-addon2" [(ngModel)]="analyseComponent.text">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buttonComponent.onClick()">
+          OK
+        </button>
       </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="vowels" checked="checked" id="inlineRadio1" value=true
+               [(ngModel)]="analyseComponent.vowels">
+        <label class="form-check-label" for="inlineRadio1">vowels</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="vowels" id="inlineRadio2" value=false
+               [(ngModel)]="analyseComponent.vowels">
+        <label class="form-check-label" for="inlineRadio2">consonants</label>
+      </div>
+      <div class="aligment2"></div>
+      <table class="table table-striped" [hidden]="analyseComponent.tableHidden">
+        <thead>
+        <tr>
+          <th class="letter">letter</th>
+          <th class="times">times</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <ng-container *ngFor="let item of analyseComponent.result.list">
+          <tr>
+            <td>{{item.letter}}</td>
+            <td>{{item.times}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
