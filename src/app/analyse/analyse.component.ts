@@ -35,6 +35,6 @@ export class AnalyseComponent implements OnInit {
         list: data.list
       }
       this.tableHidden = false
-    });
+    })
   }
 }
