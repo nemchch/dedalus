@@ -9,6 +9,8 @@ import {AnalyseService} from "./services/analyse.service";
 import {FormsModule} from "@angular/forms";
 import {AnalyseEngineComponent} from './analyse-engine/analyse-engine.component';
 import {TooltipModule} from "ngx-bootstrap/tooltip";
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,16 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    TooltipModule
+    TooltipModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [ButtonComponent,
-    AnalyseComponent, AnalyseService],
+    AnalyseComponent, AnalyseService, AnalyseEngineComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

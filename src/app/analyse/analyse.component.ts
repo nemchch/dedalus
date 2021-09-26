@@ -4,6 +4,7 @@ import {Analyse} from "../model/Analyse";
 import {AnalyseService} from "../services/analyse.service";
 import {Result} from "../model/Result";
 import {RESULT} from "../model/mock-result";
+import {AnalyseEngineComponent} from "../analyse-engine/analyse-engine.component";
 
 @Component({
   selector: 'app-analyse',
@@ -18,8 +19,10 @@ export class AnalyseComponent implements OnInit {
 
   analyse: Analyse = ANALYSE
   result: Result = RESULT
+  private analyseEngine: AnalyseEngineComponent
 
-  constructor(private analyseService: AnalyseService) {
+  constructor(private analyseService: AnalyseService, analyseEngine: AnalyseEngineComponent) {
+    this.analyseEngine = analyseEngine
   }
 
   ngOnInit(): void {
@@ -35,6 +38,8 @@ export class AnalyseComponent implements OnInit {
         list: data.list
       }
       this.tableHidden = false
+    }, error => {
+      this.result = this.analyseEngine.getAnalyse(newAnalyse)
     })
   }
 }

@@ -22,11 +22,13 @@ export class AnalyseEngineComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getAnalyse(analyse: Analyse) {
+  getAnalyse(analyse: Analyse): Result {
     let input = analyse.text.toUpperCase();
     let analyseAllLetters = this.getAnalyseLetters(input, analyse.vowels);
 
     this.fillAnalyseResult(analyseAllLetters)
+
+    return this.result
   }
 
   getAnalyseLetters(input: string, vowels: boolean | undefined): Map<string, number> {
