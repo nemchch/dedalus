@@ -1,27 +1,40 @@
-# Dedalus
+# Hello! This is my Dedalus test task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+## Front-end requirements
+Implement an Angular application that supports following requirements:
 
-## Development server
+1. a user can enter a text and start the analysis with the press of a button
+2. the logic provided in the Text Analyzer java class (attached TextAnalyzer.java) is to be reused for the java script text analysis
+3. write a test(s) that checks the output of the text analyzer logic
+4. the content of the analysis is displayed as a human readable output in the UI.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+An existing(previous) output should remain visible
 
-## Code scaffolding
+Implement a toggle switch that changes the application behavior between online and offline functionality in this way:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Offline: The application uses its own implementation of the "Text Analyzer" to analyze the user input
 
-## Build
+2. Online: The application uses the REST API of the server to analyze the user input
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## What's implemented
+1. UI with bootstrap and its own color schema
+2. REST API calls to backend 
+3. Its own analyser implementation
 
-## Running unit tests
+## Needed improvements
+1. Configure proxy and http client settings for service-worker
+2. Full test coverage
+3. Input verifications (0 letters, secure verification and so on)
+4. Add sorting in table for "letter" and "times" columns
+5. Fix tooltip color, table selection color, table stripped rows background color
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Work log
+1. Create UI via Figma 1 mh
+2. Add HTML elements and CSS style 3 mh
+3. Configure application 2 mh
+4. Create components and service 1 mh
+5. Fix CORS issue 0.5 mh
+6. Add values routing and fix errors 2 mh
+7. Add service-worker 1.5 mh
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Total: 11 mh
